@@ -5,12 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class SceneProfile
 {
-    public int SceneLevel;
-    public int WorldLevel;
+    public int[] WorldLevel;
+    public int LastScene;
+    public int LastWorld;
 
     public SceneProfile()
     {
-        SceneLevel = 0;
-        SceneLevel = 0;
+        WorldLevel = new int[4];
+        for (int i = 0; i < WorldLevel.Length; i++)
+        {
+            WorldLevel[i] = 1;
+        }
+        LastScene = 1;
+        LastWorld = 1;
     }
 }

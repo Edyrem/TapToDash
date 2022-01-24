@@ -15,20 +15,23 @@ public class Road : MonoBehaviour
     [SerializeField]
     private Transform road;
 
+    private readonly Vector3 localStartPosition = new Vector3(0, 0.7f, 0.5f);
+    private readonly float roadLengthCoeffitient = 0.5f;
+
     private void Start()
     {
-        var position = new Vector3(0, 0.7f, 0.5f);
+        var crystalPosition = localStartPosition;
         for (int i = 0; i < roadLength; i++)
         {
             var crystal = Instantiate(_crystal, transform);
-            crystal.transform.localPosition = position;
-            position.z++;
+            crystal.transform.localPosition = crystalPosition;
+            crystalPosition.z++;
         }
     }
 
     private void OnValidate()
     {
         road.localScale = new Vector3(road.localScale.x, road.localScale.y, roadLength);
-        road.localPosition = new Vector3(road.localPosition.x, road.localPosition.y, roadLength * 0.5f);
+        road.localPosition = new Vector3(road.localPosition.x, road.localPosition.y, roadLength * roadLengthCoeffitient);
     }
 }

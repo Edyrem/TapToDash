@@ -8,7 +8,10 @@ public class LevelManager : MonoBehaviour
     private Finish finish;
 
     private string sceneNameToLoad;
-    private string lastScene = "Level6";
+
+    private readonly string lastScene = "Level6";
+    private readonly int currentWorld = 1;
+    private readonly float distanceBetweenFinishAndNextStart = 3f;
 
     public static Vector3 position = Vector3.zero;
 
@@ -26,7 +29,7 @@ public class LevelManager : MonoBehaviour
             transform.position = position;            
         }
         position = finish.transform.position;
-        position.z += 3f;
+        position.z += distanceBetweenFinishAndNextStart;
     }
 
     IEnumerator LoadScene(string sceneName)
@@ -41,9 +44,14 @@ public class LevelManager : MonoBehaviour
 
     private string GetNextLevelName(string currentSceneName)
     {
-        int sceneLevel = int.Parse(currentSceneName[currentSceneName.Length - 1].ToString());
+        int sceneLevel = GetStringLastNumber(currentSceneName);
         sceneLevel++;
         return (currentSceneName.Remove(currentSceneName.Length - 1) + sceneLevel);
+    }
+
+    private int GetStringLastNumber(string stringWithNumber)
+    {
+        return int.Parse(stringWithNumber[stringWithNumber.Length - 1].ToString());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,6 +59,11 @@ public class LevelManager : MonoBehaviour
         if (other.transform.parent.CompareTag("Player"))
         {
             SceneManager.SetActiveScene(gameObject.scene);
+
+            // Save current scene level
+            var saver = new SceneHelper();
+            int currentLevel = GetStringLastNumber(gameObject.scene.name);
+            saver.SetLevel(currentWorld, currentLevel);
         }
     }
 }
