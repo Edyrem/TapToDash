@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -55,12 +53,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         SetPlayerSettings(playerSettings);
-
-        // Renew all player turnings
-        AllMoves.nextMove = new Queue<NextMove>();
-
-        // Renew position of all levels
-        LevelManager.position = Vector3.zero;
 
         // Settings of camera rotation
         cameraAngle1 = mainCamera.transform.rotation;
@@ -129,7 +121,7 @@ public class Player : MonoBehaviour
                     break;
                 }
             case NextMove.Null: break;
-        }        
+        }
     }
 
     private void RotateCamera()
@@ -144,7 +136,6 @@ public class Player : MonoBehaviour
         _jumpForce = settings.jumpForce;
         _cameraTurnAngle = settings.cameraTurnAngle;
         _cameraTurnSpeed = settings.cameraTurnSpeed;
-    }
-    
+    }   
     
 }

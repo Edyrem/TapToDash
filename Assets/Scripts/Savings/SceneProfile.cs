@@ -14,9 +14,9 @@ public class SceneProfile
         WorldLevel = new int[4];
         for (int i = 0; i < WorldLevel.Length; i++)
         {
-            WorldLevel[i] = 1;
+            WorldLevel[i] = 0;
         }
-        LastScene = 1;
-        LastWorld = 1;
+        LastScene = 0;
+        LastWorld = 0;
     }
 }

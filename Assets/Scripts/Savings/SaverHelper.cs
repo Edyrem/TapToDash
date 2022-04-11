@@ -26,6 +26,16 @@ public class SceneHelper
         private set { } 
     }
 
+    public int[] WorldsLevels
+    {
+        get
+        {
+            var data = SaveManager.Load<SceneProfile>(key);
+            return data.WorldLevel;
+        }
+        private set { }
+    }
+
     public int GetLevel(int worldLevel)
     {
         var data = SaveManager.Load<SceneProfile>(key);
@@ -48,8 +58,6 @@ public class SceneHelper
             SaveManager.Save(key, data);
         }
     }
-
-    
 
     
 }

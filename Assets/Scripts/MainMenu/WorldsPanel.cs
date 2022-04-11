@@ -17,7 +17,6 @@ public class WorldsPanel : MonoBehaviour
     {
         var sceneHelper = new SceneHelper();
         var lastScene = sceneHelper.GetLevel(WorldNumber);
-        Debug.Log(lastScene);
         foreach (Transform child in Levels.transform)
         {
             string name = child.name.Remove(child.name.Length - 1);
@@ -43,6 +42,6 @@ public class WorldsPanel : MonoBehaviour
 
     public void StartGame(int level)
     {
-        SceneManager.LoadScene("Scenes/World" + WorldNumber + "/Level" + level);
+        SceneLoader.LoadScene(level-1);
     }
 }

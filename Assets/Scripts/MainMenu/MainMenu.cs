@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +24,11 @@ public class MainMenu : MonoBehaviour
     {
         var playButtonText = mainMenuPanel.playButton.GetComponentInChildren<Text>();
         var sceneHelper = new SceneHelper();
-        if (sceneHelper.LastWorld > 1 || sceneHelper.LastLevel > 1) playButtonText.text = "Continue";
+
+        if (sceneHelper.WorldsLevels[0] > 0)
+        {
+            playButtonText.text = "Continue";
+        }
 
         settingsPanelSwap = settingsPanel.GetComponent<Animator>();
         worldsPanelSwap = worldsPanel.GetComponent<Animator>();
@@ -38,8 +39,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         var sceneHelper = new SceneHelper();
-        string sceneToLoad = "Scenes/World" + sceneHelper.LastWorld + "/Level" + sceneHelper.LastLevel;
-        SceneManager.LoadScene(sceneToLoad);
+        SceneLoader.LoadScene(sceneHelper.LastLevel, sceneHelper.LastWorld);
     }
 
     public void ShowSettingsPanel()

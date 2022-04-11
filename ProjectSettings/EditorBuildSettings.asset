@@ -9,63 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 02870c6537ad1dc4480d9f18550f97a4
   - enabled: 1
-    path: Assets/Scenes/World1/Level1.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/SceneLoader.unity
+    guid: a62e2fb92e3f8114ab95869b7b4cb524
   - enabled: 1
-    path: Assets/Scenes/World1/Level2.unity
-    guid: 33757e4f0fcf5ee4e9812624e2ad6ab6
+    path: Assets/Scenes/World/0.unity
+    guid: 2fa0bd39efe7d6c43aa45e38f1978baf
   - enabled: 1
-    path: Assets/Scenes/World1/Level3.unity
-    guid: 43e8dffa7f5310d48bd419a19793553f
+    path: Assets/Scenes/World/1.unity
+    guid: c8954a85cacdaf3489da64c1ad9bc524
   - enabled: 1
-    path: Assets/Scenes/World1/Level4.unity
-    guid: 1bcc0123a1b7ccf448af9e8a12883529
+    path: Assets/Scenes/World/2.unity
+    guid: bb09861387052284c9f2943c56bf9930
   - enabled: 1
-    path: Assets/Scenes/World1/Level5.unity
-    guid: 521eaf27c6a90294fb7257b7a77505f8
+    path: Assets/Scenes/World/3.unity
+    guid: 24c1deddb5f2703489512612c2df55fe
   - enabled: 1
-    path: Assets/Scenes/World2/Level1.unity
-    guid: 815ef100b03bae341803b020617ec497
-  - enabled: 1
-    path: Assets/Scenes/World2/Level2.unity
-    guid: 3b38439bbe068554d8af5bf4763ac1d6
-  - enabled: 1
-    path: Assets/Scenes/World2/Level3.unity
-    guid: 50a512b51026b1645ac45f4e3a193d7c
-  - enabled: 1
-    path: Assets/Scenes/World2/Level4.unity
-    guid: a6faede92d122ef4592c7ec41cf51786
-  - enabled: 1
-    path: Assets/Scenes/World2/Level5.unity
-    guid: f65ba24c087e8884aa639692bc7a6220
-  - enabled: 1
-    path: Assets/Scenes/World3/Level1.unity
-    guid: a082e0f37edaff547b99c7a73d638a04
-  - enabled: 1
-    path: Assets/Scenes/World3/Level2.unity
-    guid: ef420b6373898024ebfa7ee1d646c50c
-  - enabled: 1
-    path: Assets/Scenes/World3/Level3.unity
-    guid: 3e06e3ca2adb74a4c884f359c21bfd9f
-  - enabled: 1
-    path: Assets/Scenes/World3/Level4.unity
-    guid: ff65d1d329b3131429721efea996e378
-  - enabled: 1
-    path: Assets/Scenes/World3/Level5.unity
-    guid: c3121fd0d24c8794eb6fa4a775f5ef56
-  - enabled: 1
-    path: Assets/Scenes/World4/Level1.unity
-    guid: a06f79ca49fec32488ad07958070401a
-  - enabled: 1
-    path: Assets/Scenes/World4/Level2.unity
-    guid: 87ad9e46abb0eb741929879adfde3053
-  - enabled: 1
-    path: Assets/Scenes/World4/Level3.unity
-    guid: 8e954d6456b9bc049a222b3750da309b
-  - enabled: 1
-    path: Assets/Scenes/World4/Level4.unity
-    guid: e8f33615ea2d5a045919710065cb3f9d
-  - enabled: 1
-    path: Assets/Scenes/World4/Level5.unity
-    guid: 3a40e4217d0cb7d428ceaea95578c187
+    path: Assets/Scenes/World/4.unity
+    guid: 658d5c4bc1453ae43b54292a5b1bb342
   m_configObjects: {}
