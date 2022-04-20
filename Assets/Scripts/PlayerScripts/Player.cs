@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     private PlayerSettings playerSettings;
     
     [SerializeField]
-    private Ball ball;
+    private Human ball;
 
     [SerializeField]
     private Text scoreText;
@@ -84,40 +84,53 @@ public class Player : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    public void ResetPositionOnNewLevel()
+    {
+
+    }
+
     private void GameOver()
     {
         _speed = 0;
         gameOver = true;
         GameOverPanel.gameObject.SetActive(true);
+        ball.GetComponent<Animator>().SetBool("IsFalling", true);
+
     }
 
     private void RotatePlayer(NextMove nextMove)
     {
+        var playerRotation = ball.transform.rotation;
         switch (nextMove)
         {
             case NextMove.Left:
                 {
                     _movingDirection = Vector3.left;
+                    ball.transform.rotation = Quaternion.Euler(playerRotation.x, -90f, playerRotation.z);
                     break;
                 }
             case NextMove.Right:
                 {
                     _movingDirection = Vector3.right;
+                    ball.transform.rotation = Quaternion.Euler(playerRotation.x, 90f, playerRotation.z);
                     break;
                 }
             case NextMove.Forward:
                 {
                     _movingDirection = Vector3.forward;
+                    ball.transform.rotation = Quaternion.Euler(playerRotation.x, 0, playerRotation.z);
                     break;
                 }
             case NextMove.Backward:
                 {
                     _movingDirection = Vector3.back;
+                    ball.transform.rotation = Quaternion.Euler(playerRotation.x, 180f, playerRotation.z);
                     break;
                 }
             case NextMove.Up:
                 {
-                    _ballPhysics?.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse); 
+                    _ballPhysics?.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+                    ball.GetComponent<Animator>().SetTrigger("Jump");
                     break;
                 }
             case NextMove.Null: break;
@@ -130,7 +143,7 @@ public class Player : MonoBehaviour
         mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, endPosition, Time.deltaTime * _cameraTurnSpeed);
     }
 
-    private void SetPlayerSettings(PlayerSettings settings)
+    public void SetPlayerSettings(PlayerSettings settings)
     {
         _speed = settings.speed;
         _jumpForce = settings.jumpForce;
